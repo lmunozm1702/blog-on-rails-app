@@ -195,6 +195,16 @@ Example:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [1] **[Login page]** To validate username and password and get access to the contents.
+- [2] **[Author list]** List all authors with the total articles posted by each.
+- [3] **[Author details]** Access to the biography and posts for a particular author.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
