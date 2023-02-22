@@ -33,3 +33,5 @@
 # db testing
 /db/migrate/db.sql
 /db/migrate/data_insertion.txt
+/app/models/code.txt
+
