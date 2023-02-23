@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   it 'method update_likes_count gets an ArgumentError in call without parameters' do

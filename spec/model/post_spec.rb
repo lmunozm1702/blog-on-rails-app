@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   subject { Post.new(author_id: 2, title: 'Hello 1', text: 'This is my first post') }
