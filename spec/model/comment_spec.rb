@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Comment, type: :model do
   it 'method update_comment_count gets an ArgumentError in call without parameters' do
