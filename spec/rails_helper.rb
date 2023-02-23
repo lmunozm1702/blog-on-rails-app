@@ -26,8 +26,8 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove these lines.
 
 begin
-  ActiveRecord::Migrator.migrations_paths = [Rails.root.join("db/migrate").to_s]
-  ActiveRecord::Migration.maintain_test_schema!
+  ActiveRecord::Migrator.migrations_paths = [Rails.root.join('db/migrate').to_s]
+  # ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
