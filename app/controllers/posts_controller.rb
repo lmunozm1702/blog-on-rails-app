@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(1)
+    # @post = Post.find(1)
+    @post = Post.first
   end
 end
