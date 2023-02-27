@@ -1,1 +1,4 @@
 <h1>Users List</h1>
+<% @users.each do |user| %>
+  <%= render partial: 'layouts/user_header', locals: { user: user } %>
+<% end %>
