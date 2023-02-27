@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(2)
+    # @user = User.find(2)
+    @user = User.first
   end
 end
