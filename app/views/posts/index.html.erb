@@ -1,6 +1,7 @@
-<h1>Posts Index</h1>
 <%= render partial: 'layouts/user_header', locals: { user: @user } %>
-<% @posts.each do |post| %>
-  <%= render partial: 'layouts/post_header', locals: { post: post } %>
-  <%= render partial: 'layouts/comments_list', locals: { comments: Post.last_five_comments(post.id) } %>
-<% end %>
+<div>
+  <% @posts.each do |post| %>
+    <%= render partial: 'layouts/post_header', locals: { post: post } %>
+    <%= render partial: 'layouts/comments_list', locals: { comments: Post.last_five_comments(post.id) } %>
+  <% end %>
+</div>
