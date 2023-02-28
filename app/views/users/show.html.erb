@@ -1,3 +1,5 @@
 <h1>User Details</h1>
 <%= render partial: 'layouts/user_header', locals: { user: @user } %>
-<%= render partial: 'layouts/three_last_posts', locals: { posts: @posts } %>
+<% @posts.each do |post| %>
+  <%= render partial: 'layouts/post_header', locals: { post: post } %>
+<% end %>

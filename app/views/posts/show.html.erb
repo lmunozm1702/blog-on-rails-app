@@ -1,1 +1,7 @@
 <h1>Post Details</h1>
+<div>
+  <div>Post #<%= @post.id %> - <%= @post.title %></div>
+  <div>Comments: <%= @post.comments_counter || 0 %>, Likes: <%= @post.likes_counter || 0 %> </div>
+  <div><%= @post.text %></div>
+</div>
+<%= render partial: 'layouts/comments_list', locals: { comments: @post.comments } %>
