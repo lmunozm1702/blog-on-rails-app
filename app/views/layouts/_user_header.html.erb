@@ -4,7 +4,7 @@
   </div>
   <div class="flex-fill">
     <div class="">
-      <h5 class=""><%= user.name %></h5>
+      <h5><%= link_to user.name, user_path(user.id), class: "link-dark" %></h5>
       <p class="text-end"><small class="text-muted">Number of posts: <%= user.posts_counter || 0 %></small></p>
     </div>
   </div>

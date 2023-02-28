@@ -1,5 +1,5 @@
 <div class="d-flex gap-1 flex-column mb-5">
   <% comments.each do |comment| %>
-    <div class="bg-primary text-white px-3 rounded"><small><%= comment.user.name%>: <%= comment.text %></small></div>
+    <div class="bg-light px-3 border rounded"><small><%= comment.user.name%>: <%= comment.text %></small></div>
   <% end %>
 </div>

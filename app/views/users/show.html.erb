@@ -1,6 +1,10 @@
 <%= render partial: 'layouts/user_header', locals: { user: @user } %>
 <div class="bg-primary text-white border border-primary border-3 rounded text-center my-2 py-1">Bio</div>
 <div class="text-start my-2 py-2"><%= @user.bio %></div>
+<div class="bg-primary text-white border border-primary border-3 rounded text-center my-2 py-1">Last 3 Posts</div>
 <% @posts.each do |post| %>
-  <%= render partial: 'layouts/post_header', locals: { post: post } %>
+  <%= render partial: 'layouts/post_header', locals: { post: post, from: 'user/show'  } %>
 <% end %>
+<div class="text-end">
+  <small><%= link_to 'See all posts', user_posts_path(@user.id), class: "link-dark" %></small>
+</div>
