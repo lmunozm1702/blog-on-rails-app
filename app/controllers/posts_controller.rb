@@ -2,11 +2,40 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
-    # Post.find(author_id: params[:user_id])
-    # @user = User.find(params[:user_id])
   end
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def new
+    @user = User.find(current_user)
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+    @user = User.find(current_user)
+
+    @post.author_id = @user.id
+    @post.comments_counter = 0
+    @post.likes_counter = 0
+
+    respond_to do |format|
+      if @post.save
+        Post.update_user_count(@user.id)
+        format.html { redirect_to user_url(@user), notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
