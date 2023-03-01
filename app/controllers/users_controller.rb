@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(2)
-    @user = User.first
+    @user = User.find(params[:id])
+    @posts = User.last_three_posts(params[:id])
   end
 end

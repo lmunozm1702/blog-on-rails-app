@@ -1,1 +1,3 @@
-<h1>Post Details</h1>
+<%= render partial: 'layouts/post_header', locals: { post: @post, from: 'post/show' } %>
+<div class="bg-primary text-white border border-primary border-3 rounded text-center my-2 py-1">All Comments</div>
+<%= render partial: 'layouts/comments_list', locals: { comments: @post.comments } %>
