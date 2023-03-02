@@ -1,3 +1,4 @@
 <%= render partial: 'layouts/post_header', locals: { post: @post, from: 'post/show' } %>
+<div class="text-end"><%= link_to 'Add Comment', new_user_post_comment_path(@post.author_id,@post.id), class: "btn btn-primary btn-sm" %></div>
 <%= render partial: 'layouts/section_title', locals: { section_title: 'All Comments' } %>
-<%= render partial: 'layouts/comments_list', locals: { comments: @post.comments } %>
+<%= render partial: 'layouts/comments_list', locals: { comments: @post.comments.reverse } %>

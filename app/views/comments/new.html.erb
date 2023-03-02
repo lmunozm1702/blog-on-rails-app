@@ -1,0 +1,3 @@
+<%= render partial: 'layouts/post_header', locals: { post: @post, from: 'post/show' } %>
+<%= render partial: 'layouts/section_title', locals: { section_title: 'Create New Comment' } %>
+<%= render "form", comment: @comment %>

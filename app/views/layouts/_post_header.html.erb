@@ -1,7 +1,7 @@
 <div class="d-flex p-2 my-2 gap-1 border border-1 rounded flex-column">
   <% if from == 'post/show' %>
     <div><small>Post #<%= post.id %> - <%= post.title %></small></div>
-    <div><%= post.text %></div>
+    <div><%= post.text.truncate_words(200, omission: '...') %></div>
   <% else %>
     <div><small>Post #<%= post.id %> - <%= post.title %> <%= link_to 'Details', user_post_path(post.author_id, post.id), class: "badge bg-secondary link-light" %></small></div>
     <div><%= post.text.truncate_words(20, omission: '...') %></div>
