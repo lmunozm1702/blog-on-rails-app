@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        # Post.update_user_count(@user.id)
+        Comment.update_comments_count(@post.id)
         format.html { redirect_to user_post_url(@user, @post), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
