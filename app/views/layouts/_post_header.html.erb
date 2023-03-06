@@ -6,7 +6,7 @@
     <div><small>Post #<%= post.id %> - <%= post.title %> <%= link_to 'Details', user_post_path(post.author_id, post.id), class: "badge bg-secondary link-light" %></small></div>
     <div><%= post.text.truncate_words(20, omission: '...') %></div>
   <% end %>
-  <% like = User.find(post.author_id).likes.find_by(post: post) %>
+  <% like = post.user.likes.find_by(post: post) %>
   <div class="d-flex gap-2 justify-content-end">
     <div><small class="text-muted">Comments: <%= post.comments_counter || 0 %>, Likes: <%= post.likes_counter || 0 %></small></div>
     <div>
