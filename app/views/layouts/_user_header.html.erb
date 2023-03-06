@@ -1,4 +1,4 @@
-<div class="d-flex p-2 my-2 gap-3 align-items-center border border-3 rounded">
+<div class="d-flex p-2 my-2 gap-3 align-items-center border border-1 rounded">
   <div class="flex-column">
     <img src="<%= url_for(user.photo) %>" height="150" class="img" alt="User image thumbnail">
   </div>
@@ -6,6 +6,7 @@
     <div class="">
       <h5><%= link_to user.name, user_path(user.id), class: "link-dark" %></h5>
       <p class="text-end"><small class="text-muted">Number of posts: <%= user.posts_counter || 0 %></small></p>
+      <div class="text-end"><%= link_to 'New Post', new_user_post_path(user.id), class: "btn btn-primary btn-sm" %></div>
     </div>
   </div>
 </div>

@@ -1,0 +1,14 @@
+<%= form_for [@user, @post, @comment] do |form| %>
+  <% if comment.errors.any? %>
+    <%= render partial: 'layouts/post_form_error', locals: { post: comment } %>
+  <% end %>
+  <div class="d-flex flex-column gap-3">
+    <div>
+      <%= form.label :text, class: "form-label" %>
+      <%= form.text_area :text, class: "form-control", required: true %>
+    </div>
+    <div class="text-end">
+      <%= form.submit class: "btn btn-primary"%>
+    </div>
+  </div>
+<% end %>
