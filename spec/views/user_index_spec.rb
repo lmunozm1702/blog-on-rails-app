@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'User Index Page', type: :system do
-  describe 'user index page' do
+  describe 'User List Tests' do
     before(:each) do
       visit users_path
     end
-    it 'shows the right content' do
-      expect(page).to have_content('Number of posts')
+    it 'shows the right page title' do
+      expect(page).to have_content('Users List')
     end
     it 'shows Lilly, Luis and Tom' do
       expect(page).to have_content('Lilly')
