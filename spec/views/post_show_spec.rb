@@ -1,5 +1,5 @@
 require 'rails_helper'
- RSpec.describe 'Post Show Page', type: :system do
+RSpec.describe 'Post Show Page', type: :system do
   describe 'Post Show Tests' do
     before(:each) do
       visit user_post_path(2, 3)
