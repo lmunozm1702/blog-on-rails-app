@@ -3,6 +3,6 @@
 <div>
   <% @posts.each do |post| %>
     <%= render partial: 'layouts/post_header', locals: { post: post , from: 'post/index' } %>
-    <%= render partial: 'layouts/comments_list', locals: { post: post } %>
+    <%= render partial: 'layouts/comments_list', locals: { comments: Post.last_five_comments(post.id) } %>
   <% end %>
 </div>
