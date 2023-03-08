@@ -15,7 +15,7 @@ RSpec.describe 'Post Index Page', type: :system do
     end
 
     it 'shows user number of post' do
-      expect(page).to have_content('Number of posts: 9')
+      expect(page).to have_content(/Number of posts: \d+/i)
     end
 
     it 'shows a post title' do

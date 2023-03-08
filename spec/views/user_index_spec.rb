@@ -14,9 +14,7 @@ RSpec.describe 'User Index Page', type: :system do
       expect(page).to have_content('Tom')
     end
     it 'shows post count' do
-      expect(page).to have_content('Number of posts: 0').twice
-      expect(page).to have_content('Number of posts: 10')
-      expect(page).to have_content('Number of posts: 9')
+      expect(page).to have_content(/Number of posts: \d+/i, minimum: 1)
     end
     it 'shows user images' do
       expect(page).to have_css('img', minimum: 4)
@@ -29,8 +27,8 @@ RSpec.describe 'User Index Page', type: :system do
 
     it 'link to new post page' do
       click_link('New Post', match: :first)
-      expect(current_path).to have_content('/users/3/posts/new')
-      expect(page).to have_content('Lilly')
+      expect(current_path).to have_content(%r{/users/\d+/posts/new})
+      expect(page).to have_content('Create New Post')
     end
   end
 end

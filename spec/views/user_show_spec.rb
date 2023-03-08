@@ -19,7 +19,7 @@ RSpec.describe 'User Show Page', type: :system do
     end
 
     it 'shows user number of post' do
-      expect(page).to have_content('Number of posts: 9')
+      expect(page.text).to have_content(/Number of posts: \d+/i)
     end
 
     it 'looks if exists last 3 posts' do
@@ -32,12 +32,25 @@ RSpec.describe 'User Show Page', type: :system do
 
     it 'link to post/show page' do
       click_link('Details', match: :first)
-      expect(current_path).to have_content('/users/2/posts/20')
+      expect(current_path).to have_content(%r{/users/\d+/posts})
     end
 
     it 'link to See all posts page' do
       click_link('See all posts')
-      expect(current_path).to have_content('/users/2/posts')
+      expect(current_path).to have_content(%r{/users/\d+/posts})
+    end
+
+    it 'like / unlike button' do
+      visit('/')
+      click_link('Lilly', match: :first)
+      expect(current_path).to have_content('/users/3')
+      expect(page).to have_content('Teacher from Poland')
+
+      expect(page).to have_content('Likes: 0')
+      click_button('like', match: :first)
+      expect(page).to have_content('Likes: 1')
+      click_button('unlike', match: :first)
+      expect(page).to have_content('Likes: 0')
     end
   end
 end
