@@ -26,5 +26,11 @@ RSpec.describe 'User Index Page', type: :system do
       click_link('Tom')
       expect(current_path).to have_content('/users/2')
     end
+
+    it 'link to new post page' do
+      click_link('New Post', match: :first)
+      expect(current_path).to have_content('/users/3/posts/new')
+      expect(page).to have_content('Lilly')
+    end
   end
 end
