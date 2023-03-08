@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def self.last_five_comments(post_id)
-    Comment.where(post_id:).last(5).reverse
+    Comment.where(post_id:).includes(:user).last(5).reverse
   end
 
   def self.update_user_count(author_id)
