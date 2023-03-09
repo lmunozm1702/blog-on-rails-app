@@ -10,7 +10,13 @@
   </head>
   <body>
     <div class="container p-4">
-      <%= render partial: 'layouts/flash_message', locals: { notice: notice } if notice %>
+      <% if user_signed_in? %>
+        <div class="text-end">
+          <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'badge bg-secondary'  %>
+        </div>
+      <% end %>
+      <%= render partial: 'layouts/notice_flash_message', locals: { notice: notice } if notice %>
+      <%= render partial: 'layouts/alert_flash_message', locals: { notice: notice } if alert %>
       <%= yield %>
     </div>
   </body>
