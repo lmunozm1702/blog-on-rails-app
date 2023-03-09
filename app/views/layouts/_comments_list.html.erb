@@ -1,5 +1,10 @@
-<div class="d-flex gap-1 flex-column mb-5">
-  <% comments.each do |comment| %>
-    <div class="bg-light px-3 border rounded"><small><%= comment.user.name%>: <%= comment.text %></small></div>
-  <% end %>
-</div>
+<% comments.each do |comment| %>
+  <div class="d-flex justify-content-between mb-1 gap-2 py-1 border rounded">
+    <div>
+      <div class="bg-light px-3 "><small><%= comment.user.name%>: <%= comment.text %></small></div>
+    </div>
+    <div class="pe-2">
+      <%= button_to "delete", user_post_comment_path(current_user.id, comment.post_id, comment.id), class: "btn btn-danger btn-sm", method: :delete %>
+    </div>
+  </div>
+<% end %>
