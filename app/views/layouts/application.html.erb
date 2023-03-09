@@ -12,7 +12,7 @@
     <div class="container p-4">
       <% if user_signed_in? %>
         <div class="text-end">
-          <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'badge bg-secondary'  %>
+          welcome <%=current_user.name%> <small class="text-muted"><%=current_user.email%></small> <%= link_to "[logout]", destroy_user_session_path, method: :delete, class: 'link-primary' %>
         </div>
       <% end %>
       <%= render partial: 'layouts/notice_flash_message', locals: { notice: notice } if notice %>
