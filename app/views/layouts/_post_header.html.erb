@@ -16,5 +16,6 @@
         <%= button_to "unlike", like_path(like), class: "btn btn-primary btn-sm", method: :delete %>
       <% end %>
     </div>
+    <div><%= button_to "delete", user_post_path(current_user.id, post.id), class: "btn btn-danger btn-sm", method: :delete %></div>
   </div>
 </div>
