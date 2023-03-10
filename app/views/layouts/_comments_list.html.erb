@@ -4,7 +4,9 @@
       <div class="bg-light px-3 "><small><%= comment.user.name%>: <%= comment.text %></small></div>
     </div>
     <div class="pe-2">
-      <%= button_to "delete", user_post_comment_path(current_user.id, comment.post_id, comment.id), class: "btn btn-danger btn-sm", method: :delete %>
+      <% if can? :destroy, comment %>
+        <%= button_to "delete", user_post_comment_path(current_user.id, comment.post_id, comment.id), class: "btn btn-danger btn-sm", method: :delete %>
+      <%end%>
     </div>
   </div>
 <% end %>
