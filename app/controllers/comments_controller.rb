@@ -32,6 +32,13 @@ class CommentsController < ApplicationController
     redirect_back_or_to user_post_path(current_user.id, @comment.post_id)
   end
 
+  def index
+    @post = Post.find(params[:post_id])
+    respond_to do |format|
+      format.json { render json: @post.comments.reverse }
+    end
+  end
+
   private
 
   def comment_params
