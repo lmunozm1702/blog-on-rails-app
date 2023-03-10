@@ -7,10 +7,15 @@
     <% end %>
   </div>
   <div class="flex-fill">
-    <div class="d-flex flex-column justify-content-end">
-      <h5><%= link_to user.name, user_path(user.id), class: "link-dark" %></h5>
-      <p class="text-end"><small class="text-muted">Number of posts: <%= user.posts_counter || 0 %></small></p>
-      <div class="text-end"><%= link_to 'New Post', new_user_post_path(user.id), class: "btn btn-primary btn-sm" %></div>
+    <div class="d-flex justify-content-between">
+      <div>
+        <h5><%= link_to user.name, user_path(user.id), class: "link-dark" %></h5>
+        <small class="text-muted"><%= user.email %></small>
+      </div>
+      <div>
+        <p class="text-end"><small class="text-muted">Number of posts: <%= user.posts_counter || 0 %></small></p>
+        <div class="text-end"><%= link_to 'New Post', new_user_post_path(user.id), class: "btn btn-primary btn-sm" %></div>
+      </div>
     </div>
   </div>
 </div>

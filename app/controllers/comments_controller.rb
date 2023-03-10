@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
   def new
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @post = Post.find(params[:post_id])
     @comment = Comment.new
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @post = Post.find(params[:post_id])
 
     @comment.author_id = @user.id
@@ -23,6 +23,13 @@ class CommentsController < ApplicationController
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    Comment.update_comments_count(@comment.post_id)
+    redirect_back_or_to user_post_path(current_user.id, @comment.post_id)
   end
 
   private

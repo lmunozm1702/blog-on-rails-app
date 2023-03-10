@@ -185,6 +185,11 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
+👤 **Tamana Balkhi**
+
+- GitHub: [@tamana-Balkhi](https://github.com/tamana-Balkhi)
+- LinkedIn: [Tamana Balkhi](https://linkedin.com/in/linkedinhandle)
+
 👤 **Luis Muñoz**
 
 - GitHub: [@lmunozm1702](https://github.com/lmunozm1702)
