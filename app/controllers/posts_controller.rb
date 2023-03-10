@@ -4,6 +4,10 @@ class PostsController < ApplicationController
   def index
     @user = User.includes(:posts).find(params[:user_id])
     @posts = @user.posts.includes(:user)
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show
