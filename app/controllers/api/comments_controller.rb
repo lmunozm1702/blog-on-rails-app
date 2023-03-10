@@ -6,7 +6,7 @@ class Api::CommentsController < Api::ApplicationController
   before_action :find_post, only: %i[index create]
 
   def index
-    if @post && @post.comments.any?
+    if @post&.comments&.any?
       render json: { status: 'ok', data: @post.comments }
     else
       render json: { status: 'error', message: 'No comments' }

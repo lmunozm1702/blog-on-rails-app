@@ -5,7 +5,7 @@ class Api::LoginController < Api::ApplicationController
 
   def index
     @user = User.find_by_email(params[:email])
-    if @user && @user.valid_password?(params[:password])
+    if @user&.valid_password?(params[:password])
       payload = {
         id: @user.id,
         name: @user.name,
